@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 padding>{{getFormattedTeamPerformance()}}</h3>
+
+  <form [formGroup]="formGroup" (ngSubmit)="getFormattedTeamPerformance()">
+    <ion-item>
+      <ion-label>Developers</ion-label>
+      <ion-input type="number" formControlName="developers"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Velocity</ion-label>
+      <ion-input type="number" formControlName="velocity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Days</ion-label>
+      <ion-input type="number" formControlName="days"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
