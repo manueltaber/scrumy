@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'page-hello-ionic',
-  templateUrl: 'hello-ionic.html'
+  selector: 'page-simple-planner',
+  templateUrl: 'simple-planner.html'
 })
-export class HelloIonicPage {
+export class SimplePlannerPage {
 
   public formGroup: FormGroup;
   public developers: number = 4;

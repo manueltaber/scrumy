@@ -1,7 +1,7 @@
 {
   "name": "scrumy",
   "author": "Manuel Taber",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://scrumy.io/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -40,5 +40,5 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "scrumy: An Ionic project"
+  "description": "scrumy: scrum made simple"
 }
