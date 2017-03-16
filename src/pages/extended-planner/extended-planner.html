@@ -19,14 +19,12 @@
     </h3>
   </div>
 
-  <ion-card>
+  <ion-card *ngIf="developerVelocitiesAvailable()">
     <ion-item>
       <ion-icon item-left name="person">
       </ion-icon>
-      <span *ngIf="developerVelocitiesAvailable()">
-        <h2>Team performance: <strong>{{getFormattedOverallPerformance()}}</strong></h2>
-        <p>Days: {{getFormattedOverallPerformanceInDays()}}</p>
-      </span>
+      <h2>Team performance: <strong>{{getFormattedOverallPerformance()}}</strong></h2>
+      <p>Days: {{getFormattedOverallPerformanceInDays()}}</p>
     </ion-item>
   </ion-card>
 
