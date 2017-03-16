@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,20 +8,44 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon item-left name="person">
+      </ion-icon>
+      <span *ngIf="isFormGroupValid()">
+        <h2>Team performance: <strong>{{getFormattedTeamPerformance()}}</strong></h2>
+        <p>Days: {{getFormattedTeamPerformanceInDays()}}</p>
+      </span>
+      <span *ngIf="!isFormGroupValid()">
+        <h2>Invalid input parameters</h2>
+        <p>Check your inputs</p>
+      </span>
+    </ion-item>
+  </ion-card>
+
   <form [formGroup]="formGroup" (ngSubmit)="getFormattedTeamPerformance()">
     <ion-item>
-      <ion-label>Developers</ion-label>
-      <ion-input type="number" formControlName="developers"></ion-input>
+      <ion-label floating>Developers</ion-label>
+      <ion-input type="number" formControlName="developers" min="1" max="100"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isDevelopersControlValid()">
+      <p>Insert a number between 1 and 100</p>
     </ion-item>
     <ion-item>
-      <ion-label>Velocity</ion-label>
-      <ion-input type="number" formControlName="velocity" step="0.1"></ion-input>
+      <ion-label floating>Velocity</ion-label>
+      <ion-input type="number" formControlName="velocity" step="0.1" min="0" max="1"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isVelocityControlValid()">
+      <p>Insert a number between 0 and 1</p>
     </ion-item>
     <ion-item>
-      <ion-label>Days</ion-label>
-      <ion-input type="number" formControlName="days"></ion-input>
+      <ion-label floating>Sprint days</ion-label>
+      <ion-input type="number" formControlName="sprintDays" min="1" max="365"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isSprintDaysControlValid()">
+      <p>Insert a number between 1 and 365</p>
     </ion-item>
   </form>
 
-  <div padding>Performance: {{getFormattedTeamPerformance()}}</div>
 </ion-content>
