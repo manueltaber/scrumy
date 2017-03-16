@@ -4,9 +4,9 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { ComingSoonPage } from '../pages/coming-soon/coming-soon';
+import { ExtendedPlannerPage } from '../pages/extended-planner/extended-planner';
 import { SimplePlannerPage } from '../pages/simple-planner/simple-planner';
-import { ListPage } from '../pages/list/list';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +16,8 @@ export class MyApp {
 
   // make SimplePlannerPage the root (or first) page
   rootPage: any = SimplePlannerPage;
-  pages: Array<{title: string, component: any}>;
+  plannerPages: Array<{title: string, component: any, icon: string}>;
+  generalPages: Array<{title: string, component: any, icon: string}>;
 
   constructor(
     public platform: Platform,
@@ -25,9 +26,15 @@ export class MyApp {
     this.initializeApp();
 
     // set our app's pages
-    this.pages = [
-      { title: 'Simple planner', component: SimplePlannerPage },
-      { title: 'Extented planner', component: ListPage }
+    this.plannerPages = [
+      { title: 'Simple', component: SimplePlannerPage, icon: 'apps' },
+      { title: 'Extended', component: ExtendedPlannerPage, icon: 'desktop' },
+      { title: 'Roadmap', component: ComingSoonPage, icon: 'pie' }
+    ];
+
+    this.generalPages = [
+      { title: 'Settings', component: ComingSoonPage, icon: 'settings' },
+      { title: 'Help & Feedback', component: ComingSoonPage, icon: 'help-circle' }
     ];
   }
 

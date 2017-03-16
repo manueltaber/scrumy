@@ -2,14 +2,21 @@
   <ion-menu [content]="content">
 
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
+      <ion-toolbar color="primary">
+        <ion-title>scrumy</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
-      <ion-list>
-        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-list no-lines>
+        <ion-item-divider>Planners</ion-item-divider>
+        <button ion-item *ngFor="let p of plannerPages" (click)="openPage(p)">
+          <ion-icon name="{{p.icon}}" item-left></ion-icon>
+          {{p.title}}
+        </button>
+        <ion-item-divider></ion-item-divider>
+        <button ion-item *ngFor="let p of generalPages" (click)="openPage(p)">
+          <ion-icon name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
         </button>
       </ion-list>
