@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Extended planner</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addDeveloperVelocity()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div text-center *ngIf="!developerVelocitiesAvailable()">
+    <h3 text-center>
+      No developers configured
+    </h3>
+  </div>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon item-left name="person">
+      </ion-icon>
+      <span *ngIf="developerVelocitiesAvailable()">
+        <h2>Team performance: <strong>{{getFormattedOverallPerformance()}}</strong></h2>
+        <p>Days: {{getFormattedOverallPerformanceInDays()}}</p>
+      </span>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngFor="let developerVelocity of getDeveloperVelocities()">
+    <ion-item (click)="editDeveloperVelocity(developerVelocity)">
+      <ion-icon item-left name="man">
+      </ion-icon>
+      <h2>{{developerVelocity.name}}</h2>
+      <p>Velocity: {{developerVelocity.velocity}}, Sprint days: {{developerVelocity.sprintDays}}</p>
+      <ion-icon item-right name="trash" (click)="deleteDeveloperVelocity(developerVelocity)">
+      </ion-icon>
+    </ion-item>
+  </ion-card>
+
+  <div text-center>
+    <button ion-button icon-left (click)="addDeveloperVelocity()">
+      <ion-icon name="person-add"></ion-icon>
+      Add developer
+    </button>
+  </div>
+</ion-content>

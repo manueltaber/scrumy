@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{getTitle()}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="getFormattedTeamPerformance()">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isNameControlValid()">
+      <p>Insert a name with at least 3 characters</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Velocity</ion-label>
+      <ion-input type="number" formControlName="velocity" step="0.1" min="0" max="1"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isVelocityControlValid()">
+      <p>Insert a number between 0 and 1</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Sprint days</ion-label>
+      <ion-input type="number" formControlName="sprintDays" min="1" max="365"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!isSprintDaysControlValid()">
+      <p>Insert a number between 1 and 365</p>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-left outline (click)="cancelChanges()">
+        <ion-icon name="close"></ion-icon> 
+        Cancel
+      </button>
+      <button ion-button icon-left outline [disabled]="!formGroup.valid" (click)="saveChanges()">
+        <ion-icon name="checkmark"></ion-icon> 
+        Save
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
