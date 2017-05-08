@@ -1,2 +1,2 @@
-call ionic-build-release.bat
+call ionic-build-prod.bat
 firebase deploy

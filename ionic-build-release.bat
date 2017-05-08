@@ -1,1 +1,0 @@
-ionic build browser --release

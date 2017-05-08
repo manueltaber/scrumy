@@ -29,7 +29,7 @@ export class MyApp {
     this.plannerPages = [
       { title: 'Simple', component: SimplePlannerPage, icon: 'apps' },
       { title: 'Extended', component: ExtendedPlannerPage, icon: 'desktop' },
-      { title: 'Roadmap', component: ComingSoonPage, icon: 'pie' }
+      // { title: 'Roadmap', component: ComingSoonPage, icon: 'pie' }
     ];
 
     this.generalPages = [
